@@ -20,7 +20,7 @@ class IntroFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-            binding = FragmentIntroBinding.inflate(layoutInflater)
+            binding = FragmentIntroBinding.inflate(inflater, container,false)
         return binding.root
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_intro, container, false)
@@ -33,7 +33,6 @@ class IntroFragment : Fragment() {
             activity?.supportFragmentManager?.commit {
                 setReorderingAllowed(true)
                 replace<LoginFragment>(R.id.mainactivity_fragment)
-                disallowAddToBackStack()
             }
 
         }

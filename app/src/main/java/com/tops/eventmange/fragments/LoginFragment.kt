@@ -29,35 +29,29 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (isFormValid()){
-            binding.login.isEnabled= true
-
-        }else{
-        //ignore
-        }
-
         binding.login.setOnClickListener {
-            ///Next Activity
             val intent = Intent(context, DrawerDashboardActivity::class.java)
             startActivity(intent)
         }
-    }
 
-    private fun isFormValid(): Boolean{
-        var isValid = true
-        if(!Patterns.EMAIL_ADDRESS.matcher(binding.email.text.toString()).matches()){
-            isValid = false
-            binding.email.setError("Enter valid Email")
-        }else{
-            binding.email.setError(" ")
-        }
+         }
 
-        if(binding.password.text.toString().isEmpty()){
-            isValid = false
-            binding.password.setError("Enter valid Email")
-        }else{
-            binding.password.setError(" ")
-        }
-        return isValid
-    }
+//    private fun isFormValid(): Boolean{
+//        var isValid = true
+//        if(!Patterns.EMAIL_ADDRESS.matcher(binding.email.text.toString()).matches()){
+//            isValid = false
+//            binding.email.setError("Enter valid Email")
+//        }else{
+//            binding.email.setError(" ")
+//        }
+//
+//        if(binding.password.text.toString().isEmpty()){
+//            isValid = false
+//            binding.password.setError("Enter valid Email")
+//        }else{
+//            binding.password.setError(" ")
+//        }
+//        return isValid
+//    }
+//    }
 }
