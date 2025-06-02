@@ -14,12 +14,12 @@
         android:layout_height="328dp"
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
-        android:contentDescription="this"
         android:src="@drawable/evvvv__1_"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textView"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="19dp"
         android:padding="22dp"
-        android:text="GET STARTED"
+        android:text="@string/get_started"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

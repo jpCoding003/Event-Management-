@@ -1,5 +1,6 @@
 package com.tops.eventmange.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
@@ -22,14 +23,34 @@ class LoginFragment : Fragment() {
     ): View? {
         binding = FragmentLoginBinding.inflate(layoutInflater)
         return binding.root
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.login.setOnClickListener {
+
+            val email = binding.email.text.toString()
+            val password = binding.password.text.toString()
+
+            if(email == "") {
+                binding.email.error = "Required!!!"
+                return@setOnClickListener
+            }
+            if(password == "") {
+                binding.password.error = "Required!!!"
+                return@setOnClickListener
+            }
+
+            val sharedPref = activity?.getSharedPreferences(getString(R.string.app_name)
+                ,Context.MODE_PRIVATE)?: return@setOnClickListener
+            val IS_LOGIN = "IS_LOGIN"
+            with (sharedPref.edit()) {
+                putBoolean(IS_LOGIN, true)
+                apply()
+            }
+
             val intent = Intent(context, DrawerDashboardActivity::class.java)
             startActivity(intent)
         }

@@ -26,4 +26,5 @@
     <string name="event_planner">Event Planner</string>
     <string name="product">Product</string>
     <string name="vendors">Vendors</string>
+    <string name="get_started">GET STARTED</string>
 </resources>

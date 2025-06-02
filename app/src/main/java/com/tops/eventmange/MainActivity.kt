@@ -27,9 +27,28 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add<IntroFragment>(R.id.mainactivity_fragment)
+
+//        val sharedPref = getSharedPreferences(getString(R.string.app_name),Context.MODE_PRIVATE)
+//        val IS_LOGIN = "IS_LOGIN"
+//        val isLogin= sharedPref.getBoolean(IS_LOGIN,false)
+        // SharedPreferences :- Save data in Local Database-(In Device Only)
+        // To checkk data manually as a developer-> goto "Device Manager"-> click ":" three dots
+        // Now goto-> Data -> data -> find your package name -> fid Shared-preference ->
+        // ---> ( File name given to shared preferences )== here we have given as app_name("EventMange")
+
+
+       binding.root.post {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add<IntroFragment>(R.id.mainactivity_fragment)
+            }
         }
+
+//        supportFragmentManager.commit {
+//            setReorderingAllowed(true)
+//            add<IntroFragment>(R.id.mainactivity_fragment)
+//        }
+
     }
+
 }
