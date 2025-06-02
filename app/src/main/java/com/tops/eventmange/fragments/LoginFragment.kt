@@ -12,7 +12,7 @@ import com.tops.eventmange.DrawerDashboardActivity
 import com.tops.eventmange.R
 import com.tops.eventmange.databinding.FragmentLoginBinding
 
-
+val IS_LOGIN = "IS_LOGIN"
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
 
             val sharedPref = activity?.getSharedPreferences(getString(R.string.app_name)
                 ,Context.MODE_PRIVATE)?: return@setOnClickListener
-            val IS_LOGIN = "IS_LOGIN"
+
             with (sharedPref.edit()) {
                 putBoolean(IS_LOGIN, true)
                 apply()

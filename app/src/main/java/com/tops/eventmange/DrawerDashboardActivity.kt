@@ -1,5 +1,7 @@
 package com.tops.eventmange
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -15,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import com.tops.eventmange.databinding.ActivityDrawerDashboardBinding
+import com.tops.eventmange.fragments.IS_LOGIN
 
 class DrawerDashboardActivity : AppCompatActivity() {
 
@@ -57,18 +60,29 @@ class DrawerDashboardActivity : AppCompatActivity() {
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                TODO("Not yet implemented")
+                if (menuItem.itemId == R.id.action_logout){
+                    val sharedPref = getSharedPreferences(
+                        getString(R.string.app_name), Context.MODE_PRIVATE)?: return false
+                       with(sharedPref.edit()){
+                           putBoolean(IS_LOGIN, false)
+                           apply()
+                       }
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                    return true
+                }
+                return false
             }
         })
-
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.drawer_dashboard, menu)
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        menuInflater.inflate(R.menu.drawer_dashboard, menu)
+//        return true
+//    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_drawer_dashboard)
