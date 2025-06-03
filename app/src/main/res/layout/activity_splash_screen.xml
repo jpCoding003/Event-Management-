@@ -11,13 +11,12 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="280dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="212dp"
+        android:layout_width="287dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="128dp"
         android:contentDescription="this"
-        android:src="@drawable/evvvv__1_"
+        android:src="@drawable/iconnnnn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
