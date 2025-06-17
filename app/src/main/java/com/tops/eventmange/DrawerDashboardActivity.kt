@@ -61,13 +61,12 @@ class DrawerDashboardActivity : AppCompatActivity() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 if (menuItem.itemId == R.id.action_logout){
-                    val sharedPref = getSharedPreferences(
-                        getString(R.string.app_name), Context.MODE_PRIVATE)?: return false
+                    val sharedPref = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE)
                        with(sharedPref.edit()){
                            putBoolean(IS_LOGIN, false)
                            apply()
                        }
-                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    val intent = Intent(applicationContext, SplashScreen::class.java)
                     startActivity(intent)
                     finish()
                     return true
@@ -76,13 +75,6 @@ class DrawerDashboardActivity : AppCompatActivity() {
             }
         })
     }
-
-
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.drawer_dashboard, menu)
-//        return true
-//    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_drawer_dashboard)

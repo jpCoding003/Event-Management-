@@ -54,7 +54,6 @@ class LoginFragment : Fragment() {
             val intent = Intent(context, DrawerDashboardActivity::class.java)
             startActivity(intent)
         }
-
          }
 
 //    private fun isFormValid(): Boolean{
