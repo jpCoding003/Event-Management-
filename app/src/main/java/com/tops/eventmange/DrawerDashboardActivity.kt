@@ -63,6 +63,7 @@ class DrawerDashboardActivity : AppCompatActivity() {
                 if (menuItem.itemId == R.id.action_logout){
                     val sharedPref = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE)
                        with(sharedPref.edit()){
+
                            putBoolean(IS_LOGIN, false)
                            apply()
                        }
